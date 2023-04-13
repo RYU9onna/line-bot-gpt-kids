@@ -53,9 +53,10 @@ def handle_message(event):
 
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo-0301",
-      messages=[
-       {"role": "user", "content": event.message.text + " " + instruction}
-     ]
+        messages=[    
+        {"role": "system", "content": "あなたは漢字にはふりがなをつけて、子供でもわかるように返答してください。"},
+        {"role": "user", "content": event.message.text + " " + instruction}
+        ]
     )
 
     # AIからの応答を取得する
