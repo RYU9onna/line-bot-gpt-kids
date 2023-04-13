@@ -49,15 +49,15 @@ def callback():
 def handle_message(event):
   try:
 
-    instruction = "子供でもわかるように漢字にはふりがなをつけて、簡単にこたえて。"
+instruction = "子供でも理解できる簡単な言葉で答えてください。漢字にはふりがなを付けてください。"
 
-    response = openai.ChatCompletion.create(
-      model="gpt-3.5-turbo-0301",
-        messages=[    
-        {"role": "system", "content": "子供でもわかるように漢字にはふりがなをつけて、簡単にこたえて。"},
-        {"role": "user", "content": event.message.text + " " + instruction}
-        ]
-    )
+response = openai.ChatCompletion.create(
+  model="gpt-3.5-turbo-0301",
+  messages=[
+    {"role": "system", "content": "子供でも理解できる簡単な言葉で答えてください。漢字にはふりがなを付けてください。"},
+    {"role": "user", "content": event.message.text + " " + instruction}
+  ]
+)
 
     # AIからの応答を取得する
     print(response['choices'][0]['message']['content'])
