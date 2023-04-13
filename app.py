@@ -49,15 +49,13 @@ def callback():
 def handle_message(event):
   try:
 
+    instruction = "漢字にはふりがなをつけて、子供でもわかるように返答してください。"
+
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo-0301",
-#      model="text-davinci-003",
-
-      # 猫の部分はいじっても大丈夫
       messages=[
-        {"role": "system", "content": "あなたは漢字にはふりがなをつけて、子供でもわかるように返答します。"},
-        {"role": "user", "content":event.message.text}
-      ]
+       {"role": "user", "content": event.message.text + " " + instruction}
+     ]
     )
 
     # AIからの応答を取得する
