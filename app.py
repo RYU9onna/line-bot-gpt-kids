@@ -55,7 +55,7 @@ def handle_message(event):
 
       # 猫の部分はいじっても大丈夫
       messages=[
-        {"role": "system", "content": "あなたは漢字はつかわずに、子供でもわかるように返答します。"},
+        {"role": "system", "content": "あなたは漢字にはふりがなをつけて、子供でもわかるように返答します。"},
         {"role": "user", "content":event.message.text}
       ]
     )
