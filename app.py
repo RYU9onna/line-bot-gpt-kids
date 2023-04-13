@@ -55,7 +55,7 @@ def handle_message(event):
             model="gpt-3.5-turbo-0301",
             messages=[
                 {"role": "system", "content": instruction},
-                {"role": "user", "content": "ひらがなで答えて。\n" + event.message.text + " " + instruction}
+                {"role": "user", "content": "ひらがなで答えて。\n" + event.message.text + "\nひらがなで答えて。\n" + instruction}
             ]
         )
 
