@@ -49,12 +49,12 @@ def callback():
 def handle_message(event):
   try:
 
-    instruction = "漢字にはふりがなをつけて、子供でもわかるように返答してください。"
+    instruction = "漢字にはふりがなをつけて、子供でもわかるようにこたえて。"
 
     response = openai.ChatCompletion.create(
       model="gpt-3.5-turbo-0301",
         messages=[    
-        {"role": "system", "content": "あなたは漢字にはふりがなをつけて、子供でもわかるように返答してください。"},
+        {"role": "system", "content": "あなたはメッセージに対する返答には、漢字にはふりがなをつけて、子供でもわかるように簡単にこたえて。"},
         {"role": "user", "content": event.message.text + " " + instruction}
         ]
     )
