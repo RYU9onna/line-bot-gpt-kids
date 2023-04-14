@@ -52,7 +52,8 @@ def handle_message(event):
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0301",
             messages=[
-                {"role": "user", "content": event.message.text + "\nひらがなで答えて。"}
+                {"role": "system", "content": "あなたはひらがなだけで答えます。"},
+                {"role": "user", "content": event.message.text + "\nひらがなだけ使って。"}
             ]
         )
 
