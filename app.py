@@ -52,7 +52,7 @@ def handle_message(event):
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo-0301",
             messages=[
-                {"role": "user", "content": event.message.text + "\n全部の漢字にふりがなをつけてわかりやすく教えて。"}
+                {"role": "user", "content": event.message.text + "\nひらがなで教えて。"}
             ]
         )
 
